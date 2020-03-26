@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MPD type="static" availabilityStartTime="2019-05-03T15:57:17Z" mediaPresentationDuration="PT1M48S" minBufferTime="PT10S" xmlns="urn:mpeg:dash:schema:mpd:2011" profiles="urn:mpeg:dash:profile:isoff-main:2011">
+  <Period>
+    <AdaptationSet mimeType="video/mp4" codecs="avc1.42c00d">
+      <Representation width="1920" height="1024" frameRate="30" id="1024p4800kbps" bandwidth="4800000">
+        <SegmentTemplate timescale="30000" duration="117142" startNumber="0" media="video_0_4800000/dash/segment_$Number$.m4s" initialization="video_0_4800000/dash/init.mp4"/>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" codecs="mp4a.40.2">
+      <Representation audioSamplingRate="48000" id="128kbps" bandwidth="128000">
+        <SegmentTemplate timescale="30000" duration="117142" startNumber="0" media="audio_0_128000/dash/segment_$Number$.m4s" initialization="audio_0_128000/dash/init.mp4"/>
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>

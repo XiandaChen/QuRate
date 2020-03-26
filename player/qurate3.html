@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Video 3 QuRate</title>
+
+
+
+
+<script src="../src/webvr/QuRate_video3.js"></script>
+
+    <script src="../src/dash/dash.all.debug.js"></script>
+    <script>
+        var player,firstLoad = true;
+       
+        function load(button)
+        {
+            if (!firstLoad)
+            {
+                player.reset();
+            }
+            firstLoad = false;
+            var url =  document.getElementById("manifest").value;
+            player = dashjs.MediaPlayer().create();
+            player.getDebug().setLogToBrowserConsole(false);
+            switch (document.querySelector('input[name="delay"]:checked').value) {
+                case "segments":
+                    player.setLiveDelayFragmentCount(document.querySelector("#delayInFragments").value);
+                    break;
+                case "time":
+                    player.setLiveDelay(document.querySelector("#delayInSeconds").value);
+                    break;
+            }
+            player.initialize(document.querySelector("video"), url, true);
+        }
+
+    </script>
+
+    <style>
+        video {
+            width: 640px;
+            height: 360px;
+        }
+        #manifest {
+            width:300px;
+        } 
+        #delayInFragments,#delayInSeconds {
+            width:50px;
+        }
+    </style>
+
+<body>
+
+
+<input id="manifest" type="text" value="../video/3/3.mpd"/><br/>
+
+
+<form>
+  
+    <input type="radio" onclick="delaySelect(this)" name="delay" value="default" checked>Default<br/>
+
+    <p/><input id="loadButton" type="button" value="LOAD PLAYER" onclick="load(this)"/>
+    <form> <input type=button value="Back to play list" onClick="self.location='../QuRate.html'"></form>
+</form>
+    
+    
+<div data-o-component="o-three-sixty" width="250" height="300">
+
+<video controls="true" loop>
+    </video>
+        </div>
+    </div>
+</div>
+</body>
+</html>

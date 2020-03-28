@@ -1309,9 +1309,7 @@
 	var counter=1;
 	var flag=1;
 	var old_time=new Date().getTime(); 
-
 	var velocity = 10;
-
 	var old_orientation = [0.001,0.001,0.001,1];
     
      //========================================
@@ -1333,6 +1331,7 @@
 
 	{key:'renderSceneView',value:function renderSceneView(pose,eye){var _orientation; //==============================================================
 	
+	
 	var orientation=pose.orientation;var position=pose.position; //let velocity= pose.linearVelocity;
 
 	if(new Date().getTime() - old_time > 1000) {
@@ -1348,11 +1347,13 @@
 	
 		old_time = new Date().getTime();
 
+		// console.log('velocity: '+velocity);	
+
 	}	
 
-	if(velocity < 49.1) {  //slow,high FR 60
+	if(velocity < 28.4) {  //slow,high FR 60
 		a = 7;
-	} else if(velocity >= 28.4 && velocity < 71.1) { //mideia, 40
+	} else if(velocity >= 28.4 && velocity < 77.2) { //mideia, 40
 		a = 6;
 	} else { a = 4;}  //fast.low FR	20
 	
@@ -1363,11 +1364,19 @@
 	if(eye){this.camera.projectionMatrix = fovToProjection(eye.fieldOfView,true,this.camera.near,this.camera.far);
 	this.camera.position.add(new (_bind.apply(THREE.Vector3,[null].concat(_toConsumableArray(eye.offset))))());}
 	else {this.camera.fov = this.fov || 90;this.camera.updateProjectionMatrix();} //
-	this.renderer.render(this.scene,this.camera);}},{key:'render',value:function render(){
+	this.renderer.render(this.scene,this.camera);}},
 
-	counter += 1;
-	if(counter > a){counter=1;return;}
+
+
+	{key:'render',value:function render(){
+
 	
+	counter += 1;
+	if(counter > a){counter=1;
+		// return;
+		// console.log(counter);	
+	}
+
 	this.renderer.clear();if(this.hud)this.hud.visible = false;if(this.buttonArea)this.buttonArea.visible = false;if(this.vrDisplay){ // console.log('this is if statement');
 	var pose=this.vrDisplay.getPose();if(this.vrDisplay.isPresenting){ //console.log('this is isPresenting if statement');
 	if(this.hud)this.hud.visible = true;if(this.buttonArea){ //console.log('this is buttonArea if statement');

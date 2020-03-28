@@ -1335,7 +1335,6 @@
 	
 	var orientation=pose.orientation;var position=pose.position; //let velocity= pose.linearVelocity;
 
-
 	if(new Date().getTime() - old_time > 1000) {
 	
 		var up = orientation[0] * old_orientation[0] + orientation[1] * old_orientation[1] + orientation[2] * old_orientation[2] + orientation[3] * old_orientation[3];
@@ -1351,11 +1350,11 @@
 
 	}	
 
-	if(velocity < 28.4) {  //slow,high FR 60
-		a = 7;
-	} else if(velocity >= 28.4 && velocity < 77.2) { //mideia, 40
+	if(velocity < 51.8) {  //slow,high FR 60
 		a = 6;
-	} else { a = 4;}  //fast.low FR	20
+	} else if(velocity >= 51.8 && velocity < 83.7) { //mideia, 40
+		a = 4;
+	} else { a = 2;}  //fast.low FR	20
 
 	//==================================================================	
 	if(!orientation){orientation = [0,0,0,1];}
@@ -1365,11 +1364,10 @@
 	this.camera.position.add(new (_bind.apply(THREE.Vector3,[null].concat(_toConsumableArray(eye.offset))))());}
 	else {this.camera.fov = this.fov || 90;this.camera.updateProjectionMatrix();} //
 	this.renderer.render(this.scene,this.camera);}},{key:'render',value:function render(){
-	
+
 	counter += 1;
 	if(counter > a){counter=1;return;}
 	
-
 	this.renderer.clear();if(this.hud)this.hud.visible = false;if(this.buttonArea)this.buttonArea.visible = false;if(this.vrDisplay){ // console.log('this is if statement');
 	var pose=this.vrDisplay.getPose();if(this.vrDisplay.isPresenting){ //console.log('this is isPresenting if statement');
 	if(this.hud)this.hud.visible = true;if(this.buttonArea){ //console.log('this is buttonArea if statement');

@@ -1350,10 +1350,10 @@
 	}	
 
 	if(velocity < 60.2) {  //slow,high FR 60
-		a = 7;
-	} else if(velocity >= 28.4 && velocity < 86.7) { //mideia, 40
 		a = 6;
-	} else { a = 4;}  //fast.low FR	20
+	} else if(velocity >= 60.2 && velocity < 86.7) { //mideia, 40
+		a = 4;
+	} else { a = 3;}  //fast.low FR	30
 	
 
 	//==================================================================	
@@ -1367,6 +1367,8 @@
 
 	counter += 1;
 	if(counter > a){counter=1;return;}
+	console.log("Framerate is " + a*10 + " FPS");
+	document.getElementById("realtimeframerate").innerHTML = a*10;
 	
 	this.renderer.clear();if(this.hud)this.hud.visible = false;if(this.buttonArea)this.buttonArea.visible = false;if(this.vrDisplay){ // console.log('this is if statement');
 	var pose=this.vrDisplay.getPose();if(this.vrDisplay.isPresenting){ //console.log('this is isPresenting if statement');

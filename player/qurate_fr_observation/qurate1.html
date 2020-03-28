@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Video 4 QuRate</title>
+    <title>Video 1 QuRate</title>
 
 
 
 
-<script src="../src/webvr/QuRate_video4.js"></script>
+    <script src="../../src/webvr_fr_observation/QuRate_video1.js"></script>
 
-    <script src="../src/dash/dash.all.debug.js"></script>
+    <script src="../../src/dash/dash.all.debug.js"></script>
     <script>
         var player,firstLoad = true;
        
@@ -52,24 +52,22 @@
 <body>
 
 
-<input id="manifest" type="text" value="../video/4/4.mpd"/><br/>
+    <input id="manifest" type="text" value="../../video/1/1.mpd"/><br/>
 
 
-<form>
-  
+    <form>
     <input type="radio" onclick="delaySelect(this)" name="delay" value="default" checked>Default<br/>
-
     <p/><input id="loadButton" type="button" value="LOAD PLAYER" onclick="load(this)"/>
-    <form> <input type=button value="Back to play list" onClick="self.location='../QuRate.html'"></form>
-</form>
-    
-    
-<div data-o-component="o-three-sixty" width="250" height="300">
+    <form> <input type=button value="Back to play list" onClick="self.location='../../QuRate.html'"></form>
+    </form>
+        
+    <div data-o-component="o-three-sixty" width="250" height="300">
 
-<video controls="true" loop>
-    </video>
-        </div>
+    <video controls="true" loop></video>
     </div>
-</div>
+
+    <form> Frame rate is <p size = 10 id="realtimeframerate"> </p> FPS </form>
+    </div>
+    </div>
 </body>
 </html>

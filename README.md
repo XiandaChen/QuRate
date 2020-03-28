@@ -58,7 +58,7 @@ This repo contains three versions of video playback: original, QuRate for frame 
 * Choose any video from the "QuRate(frame rate observation)" list.
 * Method 1: before entering the VR mode, move the smartphone quickly and keep monitoring the number changing from the browser where it says "Frame rate is XX FPS".
 * Method 2: enter the VR mode. Use the "Remote devices" feature of Chrome browser and read the console log from a computer. The detail of "Remote devices" is described below.
-* Note in method 1, you do not need to enter VR mode to view the frame rate change because the WebVR library is working once the page is loaded. However, it might be hard to catch the change by human eyes since the smartphone is moving back and forth quickly.
+* NOTE, in Method 1, you do not need to enter VR mode to view the frame rate change because the WebVR library is working once the page is loaded. However, it might be hard to catch the change by human eyes since the smartphone is moving back and forth quickly.
 
 # "Remote devices" feature of Chrome
 * The steps of setting up the "Remote devices" feature on Chrome can be found in [this link](https://developers.google.com/web/tools/chrome-devtools/remote-debugging?utm_campaign=2016q3&utm_medium=redirect&utm_source=dcc).
@@ -70,9 +70,9 @@ This repo contains three versions of video playback: original, QuRate for frame 
 # Power measurement
 
 * Refer to the [guide](https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) of the power monitor tool to connect the smartphone and computer.
-* Follow the steps in "Testing & Evaluation" the load the player list page.
+* Follow the steps in "Testing & Evaluation" to load the player list page.
 * Compare the power consumption of videos from "Original" or "QuRate(power measurement)" lists.
-* Note, power reduction is more obvious when the smartphone is constantly moving at high speed.
+* NOTE, power reduction is more obvious when the smartphone is constantly moving at high speed.
 
 # Known Issue
 

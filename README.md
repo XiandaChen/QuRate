@@ -1,6 +1,6 @@
 # QuRate Overview
 
-QuRate is a quality-aware and user-centric frame rate adaptation mechanism to tackle the power consumption issue in immersive video streaming (a.k.a., 36-degree video streaming) on smartphones, which is described in our recently accepted MMSys 2020 paper:
+QuRate is a quality-aware and user-centric frame rate adaptation mechanism to tackle the power consumption issue in immersive video streaming (a.k.a., 360-degree video streaming) on smartphones, which is described in our recently accepted MMSys 2020 paper:
 
 Nan Jiang, Yao Liu, Tian Guo, Wenyao Xu, Viswanathan Swaminathan, Lisong Xu, Sheng Wei, QuRate: Power-Efficient Mobile Immersive Video Streaming, ACM Multimedia Systems Conference, to appear, June 2020.
 
@@ -38,8 +38,8 @@ This repository contains the source code, tools, and detailed setup instructions
 
 # Hardware and Software Requirements
 ### Hardware Requirements
-* An Android smartphone as the client.
-* A computer as the server.
+* An Android smartphone as the client. (If you need to measure the power, smartphone with a removable battery is recommended. The embedded battery will require extra work to set up.)
+* A computer with Internet access as the server.
 * [Power monitor](https://www.msoon.com/online-store) if need to measure the power. (Monsoon power monitor is tested and guaranteed to work)
 * An HMD if need to view the VR video with a better experience.
 * A cable to connect the smartphone with the computer if need to use the "Remote devices" feature of Chrome.
@@ -57,7 +57,9 @@ This repository contains the source code, tools, and detailed setup instructions
 1. Clone all the source files into the folder of the server on the computer. Make sure all the files can be accessed using the browser from the smartphone (i.e., Make sure the smartphone and the PC are in the same wireless connection).
 
 
-# Testing & Evaluation
+# Running immersive video streaming with and without QuRate
+This section introduces how to watch the immersive video with and without the QuRate enabled, which includes "Default" and "QuRate_verbose" modes from the playlist. You will be able to observe the frame rate reduction in the "QuRate_verbose" mode. Below are the steps to set up the player and the details to evaluate the two modes. 
+
 1. On smartphone, type `path-to-localhost-folder/QuRate.html` in the URL bar of the Chromium.
 1. Choose a video from the playlist. 
 1. (**IMPORTANT**) Before playback, make sure the smartphone is vertical.
@@ -65,13 +67,11 @@ This repository contains the source code, tools, and detailed setup instructions
 1. View the video in any HMD for a better experience.
 1. Exit the full-screen mode. Click "**Back to play list**" button to go back to the playlist for other videos.
 
-The details of evaluating the three versions of systems are introduced as follows:
-
 ### Default
 1. Choose any video from the Default list.
 1. Follow the above steps to view the VR video.
 
-### QuRate_werbose
+### QuRate_verbose
 1. Choose any video from the "QuRate_verbose" list.
 1. Choose any of the following two methods.
 
@@ -90,10 +90,13 @@ The details of evaluating the three versions of systems are introduced as follow
 1. Observe the frame rate output in the console log of the smartphone on the computer.
 * **NOTE**, frame rate reduction only happens when the smartphone is moving.
 
-### QuRate
-1. Refer to the [guide](https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) of the power monitor tool to connect the smartphone and computer. Make sure the smartphone is charged by the power monitor, not any cable. The power monitor can be controlled by the power tool application on the computer. Setup details can be found in [this link](https://mostly-tech.com/tag/monsoon-power-monitor/).
-1. Load the videos from the "Default" or "QuRate" list.
-1. Compare power consumption when playing the same video with different versions of the system.
+# Power measurement
+This section introduces how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the steps to set up the power monitor. 
+
+1. Refer to the [guide](https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) of the power monitor tool to connect the smartphone and computer. **Make sure the smartphone is charged by the power monitor, not any cable.** The power monitor can be controlled by the power tool application on the computer. 
+1. The setup requires modification to the battery system of the smartphone. It will be easier if the smartphone has a removable battery. The details can be found in [this link](https://mostly-tech.com/tag/monsoon-power-monitor/).
+1. Load the videos from the "Default" or "QuRate" list, with the same steps as introduced in previous section.
+1. Compare power consumption when playing the same video with different modes.
 
 * **NOTE**, power reduction is more obvious when the smartphone is constantly moving at high speed.
 

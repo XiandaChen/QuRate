@@ -1,19 +1,21 @@
-# QuRate Description
+# QuRate Overview
 
-QuRate is a power optimization tool for VR video streaming, which consider both power consumption and QoE (Quality of Experience).
+QuRate is a quality-aware and user-centric frame rate adaptation mechanism to tackle the power consumption issue in immersive video streaming (a.k.a., 36-degree video streaming) on smartphones, which is described in our recently accepted MMSys 2020 paper:
 
-The videos in the experiments were obtained from the following dataset paper:
+Nan Jiang, Yao Liu, Tian Guo, Wenyao Xu, Viswanathan Swaminathan, Lisong Xu, Sheng Wei, QuRate: Power-Efficient Mobile Immersive Video Streaming, ACM Multimedia Systems Conference, to appear, June 2020.
 
-```
-Xavier Corbillon, Francesca De Simone, and Gwendal Simon, 360-Degree Video Head Movement Dataset. ACM Multimedia Systems Conference (MMSys), pp. 199–204, 2017. 
-```
+QuRate optimizes the immersive video power consumption by modeling the correlation between the perceivable video quality and the user behavior. Specifically, it builds on top of the user's reduced level of concentration on the video frames during view switching and dynamically adjusts the frame rate without impacting the perceivable video quality.
 
-In order to ovoid extra power consumed by presenting the frame rate in real time, three versions of video playback are created, namely original, QuRate for frame rate observation, and QuRate for power measurement. 
+This repository contains the source code, tools, and detailed setup instructions needed to run the end-to-end 360-degree video streaming system with QuRate in place, which can be used to conduct the power measurements and obtain the power evaluation results reported in the paper. In particular, we provide the following three versions of the system for the readers who would like to reproduce QuRate results at various levels.
+* Default, the original 360-degree video streaming system without power optimization;
+* QuRate_verbose, the version of QuRate with frame rate output, for the readers to observe the effects of QuRate without conducting power measurements; and
+* QuRate, the version of QuRate for power evaluations using the power monitor.
+
 
 # Repository Hierarchy
 
 ```
- |-----player                          // player for each video
+ |-----player                          // Player for each video
        |-----original
        |-----qurate_fr_observation
        |-----qurate_power_measurement
@@ -29,18 +31,24 @@ In order to ovoid extra power consumed by presenting the frame rate in real time
        |-----4 //DASH-ed video 4
        |-----5 //DASH-ed video 5
        |-----6 //DASH-ed video 6
- |-----chromium_webvr_v1_android.apk   // special version of Chromium for playback
+ |-----tool
+       |-----chromium_webvr_v1_android.apk   // special version of Chromium browser
  |-----QuRate.html                     // main page of QuRate
 ```
 
-
-# Hardware Requirement
-
+# Hardware and Software Requirements
+### Hardware Requirements
 * An Android smartphone as the client.
 * A computer as the server.
 * [Power monitor](https://www.msoon.com/online-store) if need to measure the power. (Monsoon power monitor is tested and guaranteed to work)
 * An HMD if need to view the VR video with a better experience.
 * A cable to connect the smartphone with the computer if need to use the "Remote devices" feature of Chrome.
+
+### Software Requirements
+* Test videos (under the "video" folder of this repository) were obtained from the following dataset paper:
+
+      Xavier Corbillon, Francesca De Simone, and Gwendal Simon, 360-Degree Video Head Movement Dataset. ACM Multimedia Systems Conference (MMSys), pp. 199–204, 2017. 
+* A special version of Chromium browser `chromium_webvr_v1_android.apk` (under the "tool" folder of this repository).
 
 # System Setup
 

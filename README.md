@@ -2,14 +2,18 @@
 
 QuRate is a power optimization tool for VR video streaming, which consider both power consumption and QoE (Quality of Experience).
 
-The videos in the experiment are from [this](https://dl.acm.org/doi/10.1145/3083187.3083215) dataset paper.
+The videos in the experiments were obtained from the following dataset paper:
+
+```
+Xavier Corbillon, Francesca De Simone, and Gwendal Simon, 360-Degree Video Head Movement Dataset. ACM Multimedia Systems Conference (MMSys), pp. 199–204, 2017. 
+```
 
 In order to ovoid extra power consumed by presenting the frame rate in real time, three versions of video playback are created, namely original, QuRate for frame rate observation, and QuRate for power measurement. 
 
 # Repository Hierarchy
 
 ```
-  |-----player                          // players for each video
+ |-----player                          // player for each video
        |-----original
        |-----qurate_fr_observation
        |-----qurate_power_measurement

@@ -91,10 +91,13 @@ This section introduces how to watch the immersive video with and without the Qu
 * **NOTE**, frame rate reduction only happens when the smartphone is moving.
 
 ### QuRate mode
-This mode is for power measurement. Please refer to the "Power measurement" section for setup.
+1. Choose any video from the "QuRate" list.
+1. Follow the same steps as in "Default mode" to view the VR video in this mode.
+
+QuRate mode is for power measurement. For details about this mode, please refer to the "Power measurement" section for setup.
 
 # Power measurement
-This section introduces how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the steps to set up the power monitor. 
+This section introduces how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the details to set up the power monitor. 
 
 1. Refer to the [guide](https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) of the power monitor tool to connect the smartphone and computer. **Make sure the smartphone is charged by the power monitor, not any cable.** The power monitor can be controlled by the power tool application on the computer. 
 1. The setup requires modification to the battery system of the smartphone. It will be easier if the smartphone has a removable battery. The details can be found in [this link](https://mostly-tech.com/tag/monsoon-power-monitor/).

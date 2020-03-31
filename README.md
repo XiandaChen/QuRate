@@ -58,7 +58,7 @@ This repository contains the source code, tools, and detailed setup instructions
 
 
 # Running immersive video streaming with and without QuRate
-This section introduces how to watch the immersive video with and without the QuRate enabled, which includes "Default" and "QuRate_verbose" modes from the playlist. You will be able to observe the frame rate reduction in the "QuRate_verbose" mode. Below are the steps to set up the player and the details to evaluate the two modes. 
+This section introduces how to watch the immersive video with and without the QuRate enabled, which includes "Default" and "QuRate_verbose" modes from the playlist. You will be able to observe the frame rate reduction in the "QuRate_verbose" mode. For power measurement with the "QuRate" mode, please refer to the "Power measurement" section. Below are the steps to set up the player and the details for evaluation. 
 
 1. On smartphone, type `path-to-localhost-folder/QuRate.html` in the URL bar of the Chromium.
 1. Choose a video from the playlist. 
@@ -67,11 +67,11 @@ This section introduces how to watch the immersive video with and without the Qu
 1. View the video in any HMD for a better experience.
 1. Exit the full-screen mode. Click "**Back to play list**" button to go back to the playlist for other videos.
 
-### Default
+### Default mode
 1. Choose any video from the Default list.
 1. Follow the above steps to view the VR video.
 
-### QuRate_verbose
+### QuRate_verbose mode
 1. Choose any video from the "QuRate_verbose" list.
 1. Choose any of the following two methods.
 
@@ -89,6 +89,9 @@ This section introduces how to watch the immersive video with and without the Qu
 1. Enter the VR mode.
 1. Observe the frame rate output in the console log of the smartphone on the computer.
 * **NOTE**, frame rate reduction only happens when the smartphone is moving.
+
+### QuRate mode
+This mode is for power measurement. Please refer to the "Power measurement" section for setup.
 
 # Power measurement
 This section introduces how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the steps to set up the power monitor. 

@@ -77,28 +77,25 @@ This is the VR streaming system with QuRate enabled for power optimization. This
 1. In Step 3 above, choose a video from the "QuRate_verbose" list.
 1. Following either of the following two methods to observe the varying frame rate produced by QuRate.
 
-###### Method 1: directly observe the frame rate output from the browser page
-1. Set the system up following the above 6 steps, except for Step 4, where the "Enter VR" button is not pushed. 
+##### Method 1: directly observe the frame rate output from the browser page
+1. Set the system up following the above 6 steps, except for Step 4, where the "Enter VR" button should not be pushed. 
 1. Move the orientation of the smartphone quickly and keep monitoring the numbers changing in "Frame rate is XX FPS".
-* **NOTE**, we do not need to enter VR mode to view the frame rate change because the WebVR library starts working as soon as the page is loaded and all the frame rate information is logged by the system.
+* **NOTE**, we do not need to enter the VR mode to view the frame rate information, since the WebVR library starts working as soon as the page is loaded.
 
-###### Method 2: "Remote devices" feature of Chrome
+##### Method 2: "Remote devices" feature of Chrome
 1. Open a Chrome browser on the computer.
-1. Set up the "Remote devices" feature on Chrome following [this link](https://developers.google.com/web/tools/chrome-devtools/remote-debugging?utm_campaign=2016q3&utm_medium=redirect&utm_source=dcc).
-1. Make sure the smartphone has debug mode enabled following [this link](https://www.youtube.com/watch?v=Ucs34BkfPB0).
-1. Connect smartphone and computer with the cable.
-1. Enter the VR mode.
-1. Observe the frame rate output in the console log of the smartphone on the computer.
-* **NOTE**, frame rate reduction only happens when the smartphone is moving.
+1. Set up the "Remote devices" feature on Chrome following the instructions here (https://developers.google.com/web/tools/chrome-devtools/remote-debugging?utm_campaign=2016q3&utm_medium=redirect&utm_source=dcc).
+1. Enable USB debugging on the smartphone following the instructions here: https://developer.android.com/studio/debug/dev-options.
+1. Connect the smartphone and the computer using a USB cable.
+1. Enter the VR mode and playback the VR video on the smartphone.
+1. Observe the frame rate information from the console chrome browser.
+* **NOTE**, according to the design of QuRate, frame rate reduction occurs only when the smartphone is in motion (i.e., switching views).
 
 ### The QuRate Mode
-1. Choose any video from the "QuRate" list.
-1. Follow the same steps as in "Default mode" to view the VR video in this mode.
+In Step 3 above, choose a video from the QuRate list. This is the mode with QuRate enabled but without the frame rate output, intended for power evaluation without the potential power overhead caused by logging.  
 
-QuRate mode is for power measurement. For details about this mode, please refer to the "Power measurement" section for setup.
-
-# Power measurements
-This section introduces how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the details to set up the power monitor. 
+# Power Measurements
+This section describes how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the details to set up the power monitor. 
 
 1. Refer to the [guide](https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) of the power monitor tool to connect the smartphone and computer. **Make sure the smartphone is charged by the power monitor, not any cable.** The power monitor can be controlled by the power tool application on the computer. 
 1. The setup requires modification to the battery system of the smartphone. It will be easier if the smartphone has a removable battery. The details can be found in [this link](https://mostly-tech.com/tag/monsoon-power-monitor/).

@@ -95,19 +95,19 @@ This is the VR streaming system with QuRate enabled for power optimization. This
 In Step 3 above, choose a video from the QuRate list. This is the mode with QuRate enabled but without the frame rate output, intended for power evaluation without the potential power overhead caused by logging.  
 
 # Power Measurements
-This section describes how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the details to set up the power monitor. 
+This section describes how to measure and compare the power consumptions of "Default" and "QuRate" modes to demonstrate the effectiveness of QuRate in power-efficient VR streaming. 
 
-1. Refer to the [guide](https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) of the power monitor tool to connect the smartphone and computer. **Make sure the smartphone is charged by the power monitor, not any cable.** The power monitor can be controlled by the power tool application on the computer. 
-1. The setup requires modification to the battery system of the smartphone. It will be easier if the smartphone has a removable battery. The details can be found in [this link](https://mostly-tech.com/tag/monsoon-power-monitor/).
-1. Load the videos from the "Default" or "QuRate" list, with the same steps as introduced in previous section.
-1. Compare power consumption when playing the same video with different modes.
+1. Refer to the tuide of the Monsoon power monitor (https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) to connect the smartphone and the computer. **Please ensure that the smartphone is charged by the power monitor, not any cable.**  The power monitor can be controlled by the power tool application on the computer. 
+1. The setup requires modification to the battery system of the smartphone. It will be easier if the smartphone has a removable battery (we have tested and would recommend LG V20, Samsung S7, Moto G5, and LG G4). The details can be found here: https://mostly-tech.com/tag/monsoon-power-monitor/.
+1. Load the videos from the "Default" or "QuRate" list, with the same steps as described in previous section.
+1. Compare the power consumption when playing the same video under the Default and QuRate modes.
 
-* **NOTE**, power reduction is more obvious when the smartphone is constantly moving at high speed.
+* **NOTE**, according to the design of QuRate, power reduction is more obvious to observe when the smartphone is constantly moving at high speed.
 
 # Known Issue
 
-* Might not work for all browsers. The provided chromium browser apk has been tested to work.
-* The playback might fail if the video is entered when the phone is in horizontal mode. 
+* The system may not work with all browsers. The provided chromium browser apk has been tested to work.
+* The VR video playback may fail if the video is entered when the phone is in the horizontal mode. 
 
 # License
 MIT

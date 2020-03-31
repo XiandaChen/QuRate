@@ -106,7 +106,7 @@ This section describes how to measure and compare the power consumptions of "Def
 
 Note: according to the design of QuRate, power reduction is more obvious to observe when the smartphone is constantly moving at high speed.
 
-# Known Issue
+# Known Issues
 
 * The system may not work with all browsers. The provided chromium browser apk has been tested to work.
 * The VR video playback may fail if the video is entered when the phone is in the horizontal mode. 

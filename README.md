@@ -45,16 +45,17 @@ This repository contains the source code, tools, and detailed setup instructions
 
 
 ### Software Requirements
-* Test videos (under the "video" folder of this repository) were obtained from the following dataset paper:
+* 6 test videos (provided under the "video" folder of this repository) were obtained from the following dataset paper:
 
       Xavier Corbillon, Francesca De Simone, and Gwendal Simon, 360-Degree Video Head Movement Dataset. ACM Multimedia Systems Conference (MMSys), pp. 199–204, 2017. 
-* A special version of Chromium browser `chromium_webvr_v1_android.apk` (under the "tool" folder of this repository).
+
+* Chromium browser `chromium_webvr_v1_android.apk` (provided under the "tool" folder of this repository).
 
 # System Setup
 
-1. Install the special version of Chromium `chromium_webvr_v1_android.apk` on the smartphone. (The provided version is tested and guaranteed to work. Some other browsers maybe work as well.)
-1. Setup a server on the computer. ([XAMPP](https://www.apachefriends.org/index.html) on Windows 10 and [Apache](https://httpd.apache.org/) on Linux system is tested and guaranteed to work. Other server setups should also work.)
-1. Clone all the source files into the folder of the server on the computer. Make sure all the files can be accessed using the browser from the smartphone (i.e., Make sure the smartphone and the PC are in the same wireless connection).
+1. Install the Chromium browser `chromium_webvr_v1_android.apk` on the smartphone. (The provided version under the "tool" folder has been tested to work.)
+1. Setup a web server on the computer. (We have tested the system with Apache(https://httpd.apache.org/) on Linux. Other web servers on other operating systems may also work but have not been tested with)
+1. Client/Server setup: Clone and deploy all the source files of this repository onto the web server. Connect the smartphone and the server to the same WIFI/wired network, and make sure that the files on the web server are accessible from the smartphone browser via HTTP.
 
 
 # Running immersive video streaming with and without QuRate

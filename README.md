@@ -1,6 +1,6 @@
 # QuRate Overview
 
-QuRate is a quality-aware and user-centric frame rate adaptation mechanism to tackle the power consumption issue in immersive video streaming (a.k.a., 360-degree video streaming) on smartphones, which is described in our recently accepted MMSys 2020 paper:
+QuRate is a quality-aware and user-centric frame rate adaptation mechanism to tackle the power consumption issue in immersive video streaming (a.k.a., 360-degree video streaming or VR video streaming) on smartphones, which is described in our recently accepted MMSys 2020 paper:
 
 Nan Jiang, Yao Liu, Tian Guo, Wenyao Xu, Viswanathan Swaminathan, Lisong Xu, Sheng Wei, QuRate: Power-Efficient Mobile Immersive Video Streaming, ACM Multimedia Systems Conference, to appear, June 2020.
 
@@ -58,7 +58,7 @@ This repository contains the source code, tools, and detailed setup instructions
 1. Client/Server setup: Clone and deploy all the source files of this repository onto the web server. Connect the smartphone and the server to the same WIFI/wired network, and make sure that the files on the web server are accessible from the smartphone browser via HTTP.
 
 
-# Running 360-degree VR video streaming
+# Running VR video streaming
 This section introduces how to run the 360-degree video streaming system with the three modes: Default (original system without power optimization), QuRate_verbose (QuRate with frame rate output for observation), and QuRate (QuRate without output log for power measurements).
 
 ### General Procedure

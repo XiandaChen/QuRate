@@ -80,7 +80,8 @@ This is the VR streaming system with QuRate enabled for power optimization. This
 ##### Method 1: directly observe the frame rate output from the browser page
 1. Set the system up following the above 6 steps, except for Step 4, where the "Enter VR" button should not be pushed. 
 1. Move the orientation of the smartphone quickly and keep monitoring the numbers changing in "Frame rate is XX FPS".
-* **NOTE**, we do not need to enter the VR mode to view the frame rate information, since the WebVR library starts working as soon as the page is loaded.
+
+Note:  we do not need to enter the VR mode to view the frame rate information, since the WebVR library starts working as soon as the page is loaded.
 
 ##### Method 2: "Remote devices" feature of Chrome
 1. Open a Chrome browser on the computer.

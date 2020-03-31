@@ -40,9 +40,9 @@ This repository contains the source code, tools, and detailed setup instructions
 ### Hardware Requirements
 * An Android smartphone as the client.
 * A computer as the server.
-* [Power monitor](https://www.msoon.com/online-store) if need to measure the power. (Monsoon power monitor is tested and guaranteed to work)
-* An HMD if need to view the VR video with a better experience.
-* A cable to connect the smartphone with the computer if need to use the "Remote devices" feature of Chrome.
+* [Power monitor](https://www.msoon.com/online-store) if needed to measure the power. (Monsoon power monitor is tested and guaranteed to work)
+* An HMD if needed to view the VR video with a better experience.
+* A cable to connect the smartphone with the computer if needed to use the "Remote devices" feature of Chrome.
 
 ### Software Requirements
 * Test videos (under the "video" folder of this repository) were obtained from the following dataset paper:
@@ -89,8 +89,8 @@ This repository contains the source code, tools, and detailed setup instructions
 
 # Known Issue
 
-* Might not work for all browsers. The provide browser apk is guaranteed to work.
-* If enter the video with the phone in horizontal mode, playback might fail.
+* Might not work for all browsers. The provided chromium browser apk has been tested to work.
+* The playback might fail if the video is entered when the phone is in horizontal mode. 
 
 # License
 MIT

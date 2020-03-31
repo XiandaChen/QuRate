@@ -38,12 +38,10 @@ This repository contains the source code, tools, and detailed setup instructions
 
 # Hardware and Software Requirements
 ### Hardware Requirements
-* An Android smartphone as the client.
-* A computer as the server.
-* [Power monitor](https://www.msoon.com/online-store) if needed to measure the power. (Monsoon power monitor is tested and guaranteed to work)
-* An HMD if needed to view the VR video with a better experience.
-* A cable to connect the smartphone with the computer if needed to use the "Remote devices" feature of Chrome.
-
+* An Android smartphone as the mobile HMD. In our experiments, we have tested QuRate with LG V20, Samsung S7, Moto G5, LG G4, and Google Pixel 1. Other Android phones may also work but have not been tested with. 
+* A desktop or laptop computer as the web server.
+* (Optional) an Monsoon power monitor (https://www.msoon.com/online-store), if the readers would like to conduct power evaluation on QuRate.
+* (Optional) A cable to connect the smartphone with the computer, if the readers chose to use the "Remote devices" feature of Chrome (i.e., Method 2 under the QuRate_verbose mode).
 
 
 ### Software Requirements

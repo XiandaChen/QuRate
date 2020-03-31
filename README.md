@@ -61,7 +61,7 @@ This repository contains the source code, tools, and detailed setup instructions
 # Running 360-degree VR video streaming
 This section introduces how to run the 360-degree video streaming system with the three modes: Default (original system without power optimization), QuRate_verbose (QuRate with frame rate output for observation), and QuRate (QuRate without output log for power measurements).
 
-# General Procedure
+### General Procedure
 1. On the smartphone, access `path-to-localhost-folder/QuRate.html` from the Chromium browser.
 1. Choose a video from the playlist (please refer to the descriptions of the three test modes below for details). 
 1. (**IMPORTANT**) Before playback, please make sure the smartphone is placed with the vertical orientation.
@@ -89,7 +89,8 @@ This is the VR streaming system with QuRate enabled for power optimization. This
 1. Connect the smartphone and the computer using a USB cable.
 1. Enter the VR mode and playback the VR video on the smartphone.
 1. Observe the frame rate information from the console chrome browser.
-* **NOTE**, according to the design of QuRate, frame rate reduction occurs only when the smartphone is in motion (i.e., switching views).
+
+Note: according to the design of QuRate, frame rate reduction occurs only when the smartphone is in motion (i.e., switching views).
 
 ### The QuRate Mode
 In Step 3 above, choose a video from the QuRate list. This is the mode with QuRate enabled but without the frame rate output, intended for power evaluation without the potential power overhead caused by logging.  
@@ -102,7 +103,7 @@ This section describes how to measure and compare the power consumptions of "Def
 1. Load the videos from the "Default" or "QuRate" list, with the same steps as described in previous section.
 1. Compare the power consumption when playing the same video under the Default and QuRate modes.
 
-* **NOTE**, according to the design of QuRate, power reduction is more obvious to observe when the smartphone is constantly moving at high speed.
+Note: according to the design of QuRate, power reduction is more obvious to observe when the smartphone is constantly moving at high speed.
 
 # Known Issue
 

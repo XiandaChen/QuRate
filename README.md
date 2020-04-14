@@ -1,6 +1,6 @@
 # QuRate Overview
 
-QuRate is a quality-aware and user-centric frame rate adaptation mechanism to tackle the power consumption issue in immersive video streaming (a.k.a., 360-degree video streaming) on smartphones, which is described in our recently accepted MMSys 2020 paper:
+QuRate is a quality-aware and user-centric frame rate adaptation mechanism to tackle the power consumption issue in immersive video streaming (a.k.a., 360-degree video streaming or VR video streaming) on smartphones, which is described in our recently accepted MMSys 2020 paper:
 
 Nan Jiang, Yao Liu, Tian Guo, Wenyao Xu, Viswanathan Swaminathan, Lisong Xu, Sheng Wei, QuRate: Power-Efficient Mobile Immersive Video Streaming, ACM Multimedia Systems Conference, to appear, June 2020.
 
@@ -41,74 +41,75 @@ Moreover, the details of seting up the frame rate library (FRL) for QuRate will 
 
 # Hardware and Software Requirements
 ### Hardware Requirements
-* An Android smartphone as the client. (If you need to measure the power, smartphone with a removable battery is recommended. The embedded battery will require extra work to set up.)
-* A computer with Internet access as the server.
-* [Power monitor](https://www.msoon.com/online-store) if need to measure the power. (Monsoon power monitor is tested and guaranteed to work)
-* An HMD if need to view the VR video with a better experience.
-* A cable to connect the smartphone with the computer if need to use the "Remote devices" feature of Chrome.
+* An Android smartphone as the mobile HMD. In our experiments, we have tested QuRate with LG V20, Samsung S7, Moto G5, LG G4, and Google Pixel 1. Other Android phones may also work but have not been tested with. 
+* A desktop or laptop computer as the web server.
+* (Optional) A Monsoon power monitor (https://www.msoon.com/online-store), if the readers would like to conduct power evaluation on QuRate.
+* (Optional) A USB cable to connect the smartphone with the computer, if the readers chose to use the "Remote devices" feature of Chrome (i.e., Method 2 under the QuRate_verbose mode).
+
 
 ### Software Requirements
-* Test videos (under the "video" folder of this repository) were obtained from the following dataset paper:
+* 6 test videos (provided under the "video" folder of this repository) were obtained from the following dataset paper:
 
       Xavier Corbillon, Francesca De Simone, and Gwendal Simon, 360-Degree Video Head Movement Dataset. ACM Multimedia Systems Conference (MMSys), pp. 199–204, 2017. 
-* A special version of Chromium browser `chromium_webvr_v1_android.apk` (under the "tool" folder of this repository).
+
+* Chromium browser `chromium_webvr_v1_android.apk` (provided under the "tool" folder of this repository).
 
 # System Setup
 
-1. Install the special version of Chromium `chromium_webvr_v1_android.apk` on the smartphone. (The provided version is tested and guaranteed to work. Some other browsers maybe work as well.)
-1. Setup a server on the computer. ([XAMPP](https://www.apachefriends.org/index.html) on Windows 10 and [Apache](https://httpd.apache.org/) on Linux system is tested and guaranteed to work. Other server setups should also work.)
-1. Clone all the source files into the folder of the server on the computer. Make sure all the files can be accessed using the browser from the smartphone (i.e., Make sure the smartphone and the PC are in the same wireless connection).
+1. Install the Chromium browser `chromium_webvr_v1_android.apk` on the smartphone. (The provided version under the "tool" folder has been tested to work.)
+1. Setup a web server on the computer. (We have tested the system with Apache(https://httpd.apache.org/) on Linux. Other web servers on other operating systems may also work but have not been tested with)
+1. Client/Server setup: Clone and deploy all the source files of this repository onto the web server. Connect the smartphone and the server to the same WIFI/wired network, and make sure that the files on the web server are accessible from the smartphone browser via HTTP.
 
 
-# Running immersive video streaming with and without QuRate
-This section introduces how to watch the immersive video with and without the QuRate enabled, which includes "Default" and "QuRate_verbose" modes from the playlist. You will be able to observe the frame rate reduction in the "QuRate_verbose" mode. For power measurement with the "QuRate" mode, please refer to the "Power measurement" section. Below are the steps to set up the player and the details for evaluation. 
+# Running VR video streaming
+This section introduces how to run the 360-degree video streaming system with the three modes: Default (original system without power optimization), QuRate_verbose (QuRate with frame rate output for observation), and QuRate (QuRate without output log for power measurements).
 
-1. On smartphone, type `path-to-localhost-folder/QuRate.html` in the URL bar of the Chromium.
-1. Choose a video from the playlist. 
-1. (**IMPORTANT**) Before playback, make sure the smartphone is vertical.
-1. Click on "**LOAD PLAYER**", "**Play**", and "**Enter VR**" buttons in turns to enable VR video playback.
-1. View the video in any HMD for a better experience.
-1. Exit the full-screen mode. Click "**Back to play list**" button to go back to the playlist for other videos.
+### General Procedure
+1. On the smartphone, access `path-to-localhost-folder/QuRate.html` from the Chromium browser.
+1. Choose a video from the playlist (please refer to the descriptions of the three test modes below for details). 
+1. (**IMPORTANT**) Before playback, please make sure the smartphone is placed with the vertical orientation.
+1. Click on "**LOAD PLAYER**", "**Play**", and "**Enter VR**" buttons to initiate the VR video playback.
+1. View the VR video on the smartphone or wear the smartphone together with the Google Cardboard to have the full VR video experience.
+1. Exit the full-screen mode by clicking the "**Back to play list**" button to go back to the playlist for other videos.
 
-### Default mode
-1. Choose any video from the Default list.
-1. Follow the above steps to view the VR video.
+### The Default Mode
+In Step 3 above, choose a video from the Default list. This is the original VR streaming system without QuRate for power optimization, which serves as the baseline for comparison. 
 
-### QuRate_verbose mode
-1. Choose any video from the "QuRate_verbose" list.
-1. Choose any of the following two methods.
+### The QuRate_verbose Mode
+This is the VR streaming system with QuRate enabled for power optimization. This "verbose" mode outputs the varying frame rate information generated by QuRate for the readers to observe. Due to the additional power overhead caused by generating the output log, this version of QuRate only for observations of the QuRate's effects on frame rates without conducting power measurements.
+1. In Step 3 above, choose a video from the "QuRate_verbose" list.
+1. Following either of the following two methods to observe the varying frame rate produced by QuRate.
 
-###### Method 1: directly observe the frame rate output from the browser page
-1. Set the system up. 
-1. Do not enter the VR mode.
-1. Move the smartphone quickly and keep monitoring the number changing from the browser where it says, "Frame rate is XX FPS".
-* **NOTE**, in Method 1, you do not need to enter VR mode to view the frame rate change because the WebVR library is working once the page is loaded. However, it might be hard to catch the change by human eyes since the smartphone is moving back and forth quickly.
+##### Method 1: directly observe the frame rate output from the browser page
+1. Set the system up following the above 6 steps, except for Step 4, where the "Enter VR" button should not be pushed. 
+1. Move the orientation of the smartphone quickly and keep monitoring the numbers changing in "Frame rate is XX FPS".
 
-###### Method 2: "Remote devices" feature of Chrome
+Note:  we do not need to enter the VR mode to view the frame rate information, since the WebVR library starts working as soon as the page is loaded.
+
+##### Method 2: "Remote devices" feature of Chrome
 1. Open a Chrome browser on the computer.
-1. Set up the "Remote devices" feature on Chrome following [this link](https://developers.google.com/web/tools/chrome-devtools/remote-debugging?utm_campaign=2016q3&utm_medium=redirect&utm_source=dcc).
-1. Make sure the smartphone has debug mode enabled following [this link](https://www.youtube.com/watch?v=Ucs34BkfPB0).
-1. Connect smartphone and computer with the cable.
-1. Enter the VR mode.
-1. Observe the frame rate output in the console log of the smartphone on the computer.
-* **NOTE**, frame rate reduction only happens when the smartphone is moving.
+1. Set up the "Remote devices" feature on Chrome following the instructions here (https://developers.google.com/web/tools/chrome-devtools/remote-debugging?utm_campaign=2016q3&utm_medium=redirect&utm_source=dcc).
+1. Enable USB debugging on the smartphone following the instructions here: https://developer.android.com/studio/debug/dev-options.
+1. Connect the smartphone and the computer using a USB cable.
+1. Enter the VR mode and playback the VR video on the smartphone.
+1. Observe the frame rate information from the console chrome browser.
 
-### QuRate mode
-1. Choose any video from the "QuRate" list.
-1. Follow the same steps as in "Default mode" to view the VR video in this mode.
+Note: according to the design of QuRate, frame rate reduction occurs only when the smartphone is in motion (i.e., switching views).
 
-QuRate mode is for power measurement. For details about this mode, please refer to the "Power measurement" section for setup.
+### The QuRate Mode
+In Step 3 above, choose a video from the QuRate list. This is the mode with QuRate enabled but without the frame rate output, intended for power evaluation without the potential power overhead caused by logging.  
 
-# Power measurement
-This section introduces how to measure and compare the power consumption of "Default" and "QuRate" modes from the playlist. Please refer to the previous section for the steps to set up the player. Below are the details to set up the power monitor. 
+# Power Measurements
+This section describes how to measure and compare the power consumptions of "Default" and "QuRate" modes to demonstrate the effectiveness of QuRate in power-efficient VR streaming. 
 
-1. Refer to the [guide](https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) of the power monitor tool to connect the smartphone and computer. **Make sure the smartphone is charged by the power monitor, not any cable.** The power monitor can be controlled by the power tool application on the computer. 
-1. The setup requires modification to the battery system of the smartphone. It will be easier if the smartphone has a removable battery. The details can be found in [this link](https://mostly-tech.com/tag/monsoon-power-monitor/).
-1. Load the videos from the "Default" or "QuRate" list, with the same steps as introduced in previous section.
-1. Compare power consumption when playing the same video with different modes.
+1. Refer to the tuide of the Monsoon power monitor (https://msoon.github.io/powermonitor/PowerTool/doc/Power%20Monitor%20Manual.pdf) to connect the smartphone and the computer. **Please ensure that the smartphone is charged by the power monitor, not any cable.**  The power monitor can be controlled by the power tool application on the computer. 
+1. The setup requires modification to the battery system of the smartphone. It will be easier if the smartphone has a removable battery (we have tested and would recommend LG V20, Samsung S7, Moto G5, and LG G4). The details can be found here: https://mostly-tech.com/tag/monsoon-power-monitor/.
+1. Load the videos from the "Default" or "QuRate" list, with the same steps as described in previous section.
+1. Compare the power consumption when playing the same video under the Default and QuRate modes.
 
-* **NOTE**, power reduction is more obvious when the smartphone is constantly moving at high speed.
+Note: according to the design of QuRate, power reduction is more obvious to observe when the smartphone is constantly moving at high speed.
 
+<<<<<<< HEAD
 
 
 # Build and update frame rate library (FRL)
@@ -137,9 +138,12 @@ As the WebVR supports both the HMD view and the browser view, the user's view ex
 **Explanation** The value of `a` controls the frame rate by skipping the view generation function `renderSceneView` being called, which is the implementation of Algorithm 1 from the paper. The parameter `velocity` calculates the user's angular speed, which is the implementation of Algorithm 2 from the paper.
 
 # Known Issue
+=======
+# Known Issues
+>>>>>>> cd4536203560d891a7b846d9ee45af4fa1a59660
 
-* Might not work for all browsers. The provide browser apk is guaranteed to work.
-* If enter the video with the phone in horizontal mode, playback might fail.
+* The system may not work with all browsers. The provided chromium browser apk has been tested to work.
+* The VR video playback may fail if the video is entered when the phone is in the horizontal mode. 
 
 # License
 MIT

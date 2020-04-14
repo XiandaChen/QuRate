@@ -109,8 +109,6 @@ This section describes how to measure and compare the power consumptions of "Def
 
 Note: according to the design of QuRate, power reduction is more obvious to observe when the smartphone is constantly moving at high speed.
 
-<<<<<<< HEAD
-
 
 # Build and update frame rate library (FRL)
 
@@ -138,9 +136,6 @@ As the WebVR supports both the HMD view and the browser view, the user's view ex
 **Explanation** The value of `a` controls the frame rate by skipping the view generation function `renderSceneView` being called, which is the implementation of Algorithm 1 from the paper. The parameter `velocity` calculates the user's angular speed, which is the implementation of Algorithm 2 from the paper.
 
 # Known Issue
-=======
-# Known Issues
->>>>>>> cd4536203560d891a7b846d9ee45af4fa1a59660
 
 * The system may not work with all browsers. The provided chromium browser apk has been tested to work.
 * The VR video playback may fail if the video is entered when the phone is in the horizontal mode. 

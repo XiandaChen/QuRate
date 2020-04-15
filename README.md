@@ -114,7 +114,7 @@ Note: according to the design of QuRate, power reduction is more obvious to obse
 
 This section introduces the steps to build and update FRL. The details of those steps are also explained in Sections 4.3 and 5.2 of the paper.
 
-As the WebVR supports both the HMD view and the browser view, the user's view experience in the HMD can be simulated using the browser view mode on a PC. We use this feature of WebVR and adopt some metric to measure the user experience. Below are the details about how to build the FRL and how to apply the FRL in the JS code.
+As the WebVR supports both the HMD view and the browser view, the user's view experience in the HMD can be simulated using the browser view mode on a PC. We use this feature of WebVR and adopt some metrics to measure the user experience. Below are the details about how to build the FRL and how to apply the FRL in the JS code.
 
 
 ### Build FRL 
@@ -122,16 +122,21 @@ As the WebVR supports both the HMD view and the browser view, the user's view ex
 1. **Set up the video playback system on PC:** Set up the player using the `player/frl_update/frl_update.html`. Update the video index at Line 55 to change videos.
 1. **Calculate and rank the user's angular speed:** Calculate the user's angular speed following Equation (9) from the paper.
 1. **Adopt the user's movement in JS code:** Open `src/frl_update/frl_update.js`. Replace Lines 1296-1360 with the user's movement data. Update the value of `number` at Line 1310 as the total number of the data points.
-1. **Record the video with the user's movement:** Play the video that needs to be updated with the "Full Screen" button on the browser. Record the video from the screen of PC using [this too](https://www.apowersoft.com/#_wxga=GA1.2.1294387463.1586888792). Remember to play the video with full screen and make sure the recorded video only contains the user's view, temporal and spatial. Cut the video if necessary, using [this tool](https://online-video-cutter.com/).
-1. **Calculate the video quality:** Follow the Equations (1) to (6) from the paper to calculate all the required parameters. The `TI` and `SI` can be calculated using [this too](https://github.com/leixiaohua1020/TIandSI) 
-1. **Build the FRL:** For each video, plot the "STVQM V.S. Frame rate" curves using selected users from the previous step, like Figure 6 from the paper.
-1. **Apply the new data points in the JS code**
+1. **Record the video with the user's movement:** Play the video that needs to be updated with the "Full Screen" button on the browser. Record the video from the screen of PC using [this tool](https://www.apowersoft.com/#_wxga=GA1.2.1294387463.1586888792). Remember to play the video with full screen and make sure the recorded video only contains the user's view, temporal and spatial. Cut the video if necessary, using [this tool](https://online-video-cutter.com/).
+1. **Calculate the video quality:** Follow the Equations (1) to (6) from the paper to calculate all the required parameters. The `TI` and `SI` can be calculated using [this tool](https://github.com/leixiaohua1020/TIandSI) 
+1. **Build the FRL:** For each video, plot the "STVQM V.S. Frame rate" curves using selected users from the Step 2, like Figure 6 from the paper.
+
+**Explanation** Since directly measure the video quality of the user's view is not possible, we record the user's view from the monitor of a PC, along with the user's head movement data. In this way, we are able to measure the video quality of the user's view.
 
 
 ### Apply FRL to the JS code
 
+
 1. Find the JS code for the video that needs to be updated from `src/webvr_power_measurement/QuRate_videoX` (where videoX is the video index).
-1. Update the value of `a` and the range of `velocity` between lines 1354 and 1358 accordingly.
+1. Update the value of `a` and the range of `velocity` between lines 1354 and 1358 accordingly, as described in the following steps.
+1. Set an appropriate "STVQM Objective" score for each video as shown in Table 4 of the paper.
+1. For each video, from the curves plotted in the last section, find the frame rate values of each user with the appropriate STVQM Objective score set in the last step, which will be the values of `a` in the JS code (also will be the last three columns in Table 4 of the paper). 
+1. Again, for each video, find the angular speed of those users in the plot, which will be the corresponding `velocity` value to each `a` in the JS code.
 
 **Explanation** The value of `a` controls the frame rate by skipping the view generation function `renderSceneView` being called, which is the implementation of Algorithm 1 from the paper. The parameter `velocity` calculates the user's angular speed, which is the implementation of Algorithm 2 from the paper.
 

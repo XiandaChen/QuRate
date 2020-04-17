@@ -14,6 +14,7 @@ This repository contains the source code, tools, and detailed setup instructions
 Moreover, the details of seting up the frame rate library (FRL) for QuRate will be introduced in "Section Build and update frame rate library (FRL)".
 
 # Repository Hierarchy
+Artifacts: [![DOI](https://zenodo.org/badge/250305918.svg)](https://zenodo.org/badge/latestdoi/250305918)
 
 ```
  |-----player                          // Player for different modes
